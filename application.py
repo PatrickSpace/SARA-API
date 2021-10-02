@@ -8,10 +8,10 @@ name_model = 'amoux/scibert_nli_squad'
 model = AutoModelForQuestionAnswering.from_pretrained(name_model)
 tokenizer= AutoTokenizer.from_pretrained(name_model, do_lower_case=False)
 nlp = pipeline('question-answering', model = model, tokenizer = tokenizer)
-app = Flask(__name__)
-CORS(app)
+application = Flask(__name__)
+CORS(application)
 
-@app.route('/preguntar', methods=['POST'])
+@application.route('/preguntar', methods=['POST'])
 @cross_origin(origin='*')
 def preguntar():
 	log=[]
@@ -28,4 +28,4 @@ def preguntar():
 	return jsonify({'Respuesta':resp})
 
 if __name__ == '__main__':
-	app.run(port=5000,debug=True)
+	application.run(port=5000,debug=True)
