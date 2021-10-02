@@ -11,6 +11,12 @@ nlp = pipeline('question-answering', model = model, tokenizer = tokenizer)
 application = Flask(__name__)
 CORS(application)
 
+@application.route('/')
+@cross_origin(origin='*')
+def ServerStatus():
+	return "Server Iniciado"
+
+
 @application.route('/preguntar', methods=['POST'])
 @cross_origin(origin='*')
 def preguntar():
