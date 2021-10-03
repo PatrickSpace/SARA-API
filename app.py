@@ -8,16 +8,16 @@ name_model = 'amoux/scibert_nli_squad'
 model = AutoModelForQuestionAnswering.from_pretrained(name_model)
 tokenizer= AutoTokenizer.from_pretrained(name_model, do_lower_case=False)
 nlp = pipeline('question-answering', model = model, tokenizer = tokenizer)
-application = Flask(__name__)
-CORS(application)
+app = Flask(__name__)
+CORS(app)
 
-@application.route('/')
+@app.route('/')
 @cross_origin(origin='*')
 def ServerStatus():
 	return "Server Iniciado"
 
 
-@application.route('/preguntar', methods=['POST'])
+@app.route('/preguntar', methods=['POST'])
 @cross_origin(origin='*')
 def preguntar():
 	log=[]
@@ -34,4 +34,4 @@ def preguntar():
 	return jsonify({'Respuesta':resp})
 
 if __name__ == '__main__':
-	application.run(port=5000,debug=True)
+	app.run(host="0.0.0.0",port=5000,debug=False)
