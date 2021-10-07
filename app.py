@@ -32,7 +32,7 @@ def preguntar():
 				resp=payload['answer']
 		except:
 			print("An NLP Tokenization Exception has happened")
-	return jsonify({'Respuesta':resp})
+	return jsonify({'Respuesta':resp,'Score':score})
 
 if __name__ == '__main__':
 	app.run(host="0.0.0.0")
