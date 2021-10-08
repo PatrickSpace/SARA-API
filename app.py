@@ -33,15 +33,20 @@ def preguntar():
 			val=payload['score']
 			print(payload)
 		except Exception as e:
-			print(e)
-			print("An Exception has happened")
+			errfile = open('errorlog.txt','a+')
+			errfile.write("An Exception has happened")
+			errfile.write(str(e)+"\n")
+			errfile.close()
 		if val>score:
 			score=val
 			resp=payload['answer']
 			print("===================================")
-			print(dat)
+			print("New best fit")
 			print(payload)
 			print("===================================")
+	logfile = open('answerlog.txt','a+')
+	logfile.write( "Pregunta: " + _pregunta + ", Best Answer -> " + resp + ", Score: " + str(score)+"\n")
+	logfile.close()
 	return jsonify({'Respuesta':resp,'Score':score})
 
 if __name__ == '__main__':
