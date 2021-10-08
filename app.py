@@ -21,7 +21,6 @@ def ServerStatus():
 def preguntar():
 	_contexto = request.json['contexto']
 	_pregunta = request.json['pregunta']
-	_contexto = _contexto.split("[],[]")
 	score=-1
 	resp=""
 	for dat in _contexto:
