@@ -29,7 +29,6 @@ def preguntar():
 		try:
 			payload = nlp(question=_pregunta,context=dat)
 			val=payload['score']
-			print(payload)
 		except Exception as e:
 			errfile = open('errorlog.txt','a+')
 			errfile.write("An Exception has happened: ")
@@ -38,10 +37,6 @@ def preguntar():
 		if val>score:
 			score=val
 			resp=payload['answer']
-			print("===================================")
-			print("New best fit")
-			print(payload)
-			print("===================================")
 	logfile = open('answerlog.txt','a+')
 	logfile.write( "Pregunta: " + _pregunta + ", Best Answer -> " + resp + ", Score: " + str(score)+"\n")
 	logfile.close()
