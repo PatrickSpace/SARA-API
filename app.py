@@ -30,16 +30,10 @@ def preguntar():
 			payload = nlp(question=_pregunta,context=dat)
 			val=payload['score']
 		except Exception as e:
-			errfile = open('errorlog.txt','a+')
-			errfile.write("An Exception has happened: ")
-			errfile.write(str(e)+"\n")
-			errfile.close()
+			print(e)
 		if val>score:
 			score=val
 			resp=payload['answer']
-	logfile = open('answerlog.txt','a+')
-	logfile.write( "Pregunta: " + _pregunta + ", Best Answer -> " + resp + ", Score: " + str(score)+"\n")
-	logfile.close()
 	return jsonify({'Respuesta':resp,'Score':score})
 
 if __name__ == '__main__':
