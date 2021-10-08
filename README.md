@@ -33,8 +33,3 @@ pip install flask
 ```
 pip install flask-cors
 ```
-
-#### 5 PyPDF2
-```
-pip install PyPDF2
-```
