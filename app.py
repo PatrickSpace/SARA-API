@@ -1,8 +1,6 @@
 from transformers import QuestionAnsweringPipeline,BertForQuestionAnswering,BertTokenizerFast
 from flask import Flask, jsonify, request
 from flask_cors import cross_origin,CORS
-name_model = "francoMG/sara-qa"
-tokenizer_model = "dccuchile/bert-base-spanish-wwm-uncased"
 #model = pickle.load(open('modelo-qa','rb'))
 name_model = "francoMG/sara-qa"
 tokenizer_model = "dccuchile/bert-base-spanish-wwm-uncased"
