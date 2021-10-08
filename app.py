@@ -34,7 +34,7 @@ def preguntar():
 			print(payload)
 		except Exception as e:
 			errfile = open('errorlog.txt','a+')
-			errfile.write("An Exception has happened")
+			errfile.write("An Exception has happened: ")
 			errfile.write(str(e)+"\n")
 			errfile.close()
 		if val>score:
